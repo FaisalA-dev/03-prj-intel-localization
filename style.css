@@ -1,0 +1,122 @@
+/* Hide the timeline info text by default */
+.timeline-info {
+	display: none;
+}
+
+/* Show the info text when hovering over the card */
+.timeline-card:hover .timeline-info {
+	display: block;
+	margin-top: 0.5rem;
+	animation: fadeIn 0.3s;
+}
+
+/* Optional: fade-in animation for info */
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+/*
+	Main styles for Intel Sustainability Timeline
+	Simple, beginner-friendly CSS with comments
+*/
+
+body {
+	font-family: Arial, sans-serif;
+	background: #f4f8fb;
+	color: #222;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	background: #0068b5;
+	color: #fff;
+	padding: 2rem 1rem 1.5rem 1rem;
+	text-align: center;
+}
+
+header img {
+	width: 120px; /* Resize the logo */
+	margin-bottom: 1rem;
+}
+
+header h1 {
+	margin: 0.5rem 0 0.5rem 0;
+	font-size: 2.2rem;
+	letter-spacing: 1px;
+}
+
+header p {
+	max-width: 500px;
+	margin: 0 auto;
+	font-size: 1.1rem;
+}
+
+/* Timeline section styles */
+.timeline {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+	padding: 2rem 1rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* Timeline card styles */
+.timeline-card {
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	padding: 1.5rem 1rem 1rem 1rem;
+	width: 270px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.timeline-card:hover {
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 6px 20px rgba(0,104,181,0.15);
+}
+
+.timeline-img {
+	width: 100%;
+	height: 140px;
+	object-fit: cover;
+	border-radius: 12px;
+	margin-bottom: 1rem;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+.timeline-card h2 {
+	color: #0068b5;
+	margin: 0.2rem 0 0.1rem 0;
+	font-size: 1.3rem;
+}
+
+.timeline-card h3 {
+	margin: 0 0 0.5rem 0;
+	font-size: 1.1rem;
+	color: #333;
+}
+
+.timeline-card p {
+	font-size: 1rem;
+	color: #444;
+	text-align: center;
+}
+
+/* Responsive: stack cards on small screens */
+@media (max-width: 700px) {
+	.timeline {
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+	.timeline-card {
+		width: 95vw;
+		max-width: 350px;
+	}
+}

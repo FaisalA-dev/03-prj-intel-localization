@@ -1,10 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="main-html">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intel: Sustainability Through the Ages</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intel Sustainability Timeline</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Minimal, flat redesign for cards and form */
+    .card {
+      border: 1px solid #e3e3e3;
+      border-radius: 0.5rem;
+      background: #f8f9fa;
+      box-shadow: none;
+      transition: border-color 0.2s;
+    }
+    .card:hover {
+      border-color: #0d6efd;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .card-body p {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+    .btn-outline-primary, .btn-outline-success, .btn-outline-info {
+      border-radius: 0.5rem;
+      font-weight: 500;
+      padding: 0.5rem 1.2rem;
+      box-shadow: none;
+      background: #fff;
+      border-width: 2px;
+    }
+    .btn-outline-primary:hover {
+      background: #0d6efd;
+      color: #fff;
+      border-color: #0d6efd;
+    }
+    .btn-outline-success:hover {
+      background: #198754;
+      color: #fff;
+      border-color: #198754;
+    }
+    .btn-outline-info:hover {
+      background: #0dcaf0;
+      color: #fff;
+      border-color: #0dcaf0;
+    }
+    /* Subscription form minimal style */
+    .card-title.text-center {
+      color: #222;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .card.shadow {
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 16px rgba(13,110,253,0.08);
+      background: linear-gradient(135deg, #e3f0ff 0%, #f8f9fa 100%);
+      border: 1.5px solid #b6d4fe;
+      padding: 2rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .card-title.text-center {
+      color: #0d6efd;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .form-label {
+      font-weight: 600;
+      color: #198754;
+    }
+    .form-control {
+      border-radius: 0.5rem;
+      border: 1.5px solid #b6d4fe;
+      background: #fff;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: 0 0 0 0.15rem rgba(13,110,253,.15);
+    }
+    .btn-primary {
+      border-radius: 2rem;
+      font-weight: 600;
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(90deg, #0d6efd 60%, #198754 100%);
+      border: none;
+      box-shadow: 0 2px 8px rgba(13,110,253,0.08);
+      transition: background 0.2s;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #198754 0%, #0d6efd 100%);
+    }
+    .form-label {
+      font-weight: 500;
+      color: #222;
+    }
+    .form-control {
+      border-radius: 0.5rem;
+      border: 1.5px solid #e3e3e3;
+      background: #fff;
+      font-size: 1rem;
+    }
+    .form-control:focus {
+      border-color: #0d6efd;
+      box-shadow: none;
+    }
+    .invalid-feedback {
+      color: #dc3545;
+      font-size: 0.95rem;
+    }
+    .form-text {
+      color: #6c757d;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 767px) {
+      .card-title {
+        font-size: 1rem;
+      }
+      .card-title.text-center {
+        font-size: 1rem;
+      }
+      .card-body p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+  <!-- Bootstrap 5.3 CSS CDN -->
+  <link id="bootstrap-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6VKHr8zWvZg9lZl6Y9l1F1l5rZ6jG6tztl9C1hF5rJp4" crossorigin="anonymous">
+</head>
+   
+  </style>
+  <script>
+    // Example: Switch RTL/LTR based on language
+    // Usage: setLanguage('ar') for Arabic, setLanguage('en') for English
+    function setLanguage(lang) {
+      var html = document.getElementById('main-html');
+      var bootstrapCss = document.getElementById('bootstrap-css');
+      if (lang === 'ar' || lang === 'he' || lang === 'fa') {
+        html.setAttribute('dir', 'rtl');
+        bootstrapCss.setAttribute('href', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css');
+      } else {
+        html.setAttribute('dir', 'ltr');
+        bootstrapCss.setAttribute('href', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css');
+      }
+      html.setAttribute('lang', lang);
+    }
+    // Default: English (LTR)
+    setLanguage('en');
+  </script>
 </head>
 <body>
 
@@ -13,7 +166,7 @@
     <div>
       <img src="img/intel-header-logo.svg" alt="Intel Logo" />
       <!-- Main Heading -->
-      <h1>
+      <h1> 
         Sustainability Through the Ages
       </h1>
 
@@ -26,110 +179,93 @@
     </div>
   </header>
 
-  <!-- Timeline Cards Section -->
-  <section>
-    <!-- Card 1: 1968 -->
-    <div>
+  <!-- Timeline Cards Section (merged: new code with classes and images) -->
+  <section class="timeline">
+    <div class="timeline-card">
+      <img src="img/1.jpg" alt="Intel Founded" class="timeline-img" />
       <h2>1968</h2>
       <h3>Intel Founded</h3>
-      <img src="img/1.jpg" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         Robert Noyce and Gordon Moore rename the newly formed company 
         NM Electronics to Intel Corporation, laying the foundation for 
         decades of technological innovation.
       </p>
     </div>
-
-    <!-- Card 2: 1971 -->
-    <div>
+    <div class="timeline-card">
+      <img src="img/2.jpg" alt="First Microprocessor" class="timeline-img" />
       <h2>1971</h2>
       <h3>First Microprocessor</h3>
-      <img src="img/2.jpg" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         Intel debuts the 4004, the world's first commercial microprocessor, 
         igniting the microprocessor revolution and propelling the future 
         of computing devices.
       </p>
     </div>
-
-    <!-- Card 3: 1978 -->
-    <div>
+    <div class="timeline-card">
+      <img src="img/3.jpg" alt="8086 Processor" class="timeline-img" />
       <h2>1978</h2>
       <h3>8086 Processor</h3>
-      <img src="img/3.jpg" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         Launch of the 8086 processor, establishing the x86 architecture 
         that drives countless PCs and servers in the modern era.
       </p>
     </div>
-
-    <!-- Card 4: 1985 -->
-    <div>
+    <div class="timeline-card">
+      <img src="img/4.jpg" alt="386 Processor" class="timeline-img" />
       <h2>1985</h2>
       <h3>386 Processor</h3>
-      <img src="img/4.jpg" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         Intel introduces the 386 processor with 32-bit architecture, 
         ushering in a new era of performance and multitasking for 
         personal computers.
       </p>
     </div>
-
-    <!-- Card 5: 2006 -->
-    <div>
+    <div class="timeline-card">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Peak GHG Emissions" class="timeline-img" />
       <h2>2006</h2>
       <h3>Peak GHG Emissions</h3>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         This year marks Intel's highest annual greenhouse gas emissions 
         for operations. Over subsequent years, Intel invests heavily in 
         chemical abatement, renewable energy, and energy-efficient 
         manufacturing to reverse this trend.
       </p>
     </div>
-
-    <!-- Card 6: 2020 -->
-    <div>
+    <div class="timeline-card">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="RISE Strategy" class="timeline-img" />
       <h2>2020</h2>
       <h3>RISE Strategy</h3>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         Intel launches its RISE (Responsible, Inclusive, Sustainable, 
         Enabling) strategy and 2030 goals, aiming to drive industry-wide 
         progress on climate action, water stewardship, and waste reduction.
       </p>
     </div>
-
-    <!-- Card 7: 2022 -->
-    <div>
+    <div class="timeline-card">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Net-Zero By 2040" class="timeline-img" />
       <h2>2022</h2>
       <h3>Net-Zero By 2040</h3>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         Intel announces its commitment to achieve net-zero greenhouse 
         gas emissions (Scope 1 and 2) across its global operations 
         by 2040, building on years of environmental initiatives.
       </p>
     </div>
-
-    <!-- Card 8: 2023 -->
-    <div>
+    <div class="timeline-card">
+      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=400&q=80" alt="Renewable Electricity" class="timeline-img" />
       <h2>2023</h2>
       <h3>Renewable Electricity</h3>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         The company achieves 99% renewable electricity usage worldwide, 
         helping to drastically lower carbon emissions and driving progress 
         toward Intel's long-term sustainability goals.
       </p>
     </div>
-
-    <!-- Card 9: 2024 -->
-    <div>
+    <div class="timeline-card">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80" alt="Sustainability Summit" class="timeline-img" />
       <h2>2024</h2>
       <h3>Sustainability Summit</h3>
-      <img src="https://placehold.co/250x100" alt="Placeholder Image" />
-      <p>
+      <p class="timeline-info">
         Intel hosts its first Sustainability Summit, uniting suppliers, 
         government officials, and industry leaders to collaborate on 
         next-generation sustainable semiconductor manufacturing.
@@ -137,55 +273,143 @@
     </div>
   </section>
 
-  <!-- 3-Column Content Section -->
-  <section>
-    <div>
-      
+  <!-- 3-Column Content Section (Bootstrap grid) -->
+  <section class="container my-5">
+    <div class="row text-center g-4">
       <!-- Column 1 -->
-      <div>
-        <h2>RISE Strategy</h2>
-        <p>
-          Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
-          Intel sets ambitious 2030 goals, including driving industry-wide 
-          progress on climate action, water stewardship, and waste reduction.
-        </p>
-        <!-- Learn More Button -->
-        <a href="#">Learn More</a>
+      <div class="col-md-4 col-12">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <h2 class="card-title mb-3">
+              <span class="me-2" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0d6efd" class="bi bi-bar-chart-line" viewBox="0 0 16 16"><path d="M11 10a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zm-4-3a1 1 0 0 1 1 1v5a1 1 0 0 1-2 0V8a1 1 0 0 1 1-1zm-4 2a1 1 0 0 1 1 1v3a1 1 0 0 1-2 0v-3a1 1 0 0 1 1-1zm13-7a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0V1.5a.5.5 0 0 1 .5-.5z"/></svg>
+              </span>
+              RISE Strategy
+            </h2>
+            <p>
+              Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
+              Intel sets ambitious 2030 goals, including driving industry-wide 
+              progress on climate action, water stewardship, and waste reduction.
+            </p>
+            <a href="#" class="btn btn-outline-primary mt-2" aria-label="Learn more about RISE Strategy">Learn More</a>
+          </div>
+        </div>
       </div>
-
       <!-- Column 2 -->
-      <div>
-        <h2>Commitment</h2>
-        <p>
-          In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
-          (Scope 1 and 2) by 2040. This commitment builds on decades of 
-          environmental initiatives and partnerships across the semiconductor 
-          industry.
-        </p>
-        <!-- Learn More Button -->
-        <a href="#">Learn More</a>
+      <div class="col-md-4 col-12">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <h2 class="card-title mb-3">
+              <span class="me-2" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#198754" class="bi bi-shield-check" viewBox="0 0 16 16"><path d="M5.072 1.28a1.5 1.5 0 0 1 1.856 0l5.5 4.4A1.5 1.5 0 0 1 13 6.5v4.5a5.5 5.5 0 0 1-11 0V6.5a1.5 1.5 0 0 1 .572-1.12l5.5-4.4zM8 15a4.5 4.5 0 0 0 4.5-4.5V6.5a.5.5 0 0 0-.191-.38l-5.5-4.4a.5.5 0 0 0-.618 0l-5.5 4.4A.5.5 0 0 0 1.5 6.5v4.5A4.5 4.5 0 0 0 8 15zm2.854-7.646a.5.5 0 0 1 0 .707l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.707l1.146 1.147 2.646-2.647a.5.5 0 0 1 .708 0z"/></svg>
+              </span>
+              Commitment
+            </h2>
+            <p>
+              In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
+              (Scope 1 and 2) by 2040. This commitment builds on decades of 
+              environmental initiatives and partnerships across the semiconductor 
+              industry.
+            </p>
+            <a href="#" class="btn btn-outline-success mt-2" aria-label="Learn more about Commitment">Learn More</a>
+          </div>
+        </div>
       </div>
-
       <!-- Column 3 -->
-      <div>
-        <h2>Water &amp; Waste</h2>
-        <p>
-          Intel conserves billions of gallons of water annually and 
-          collaborates with local communities to restore watersheds.
-          Intel also upcycles and recycles materials to reduce waste and 
-          advance a circular economy.
-        </p>
-        <!-- Learn More Button -->
-        <a href="#">Learn More</a>
+      <div class="col-md-4 col-12">
+        <div class="card h-100 border-0">
+          <div class="card-body">
+            <h2 class="card-title mb-3">
+              <span class="me-2" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0dcaf0" class="bi bi-droplet-half" viewBox="0 0 16 16"><path d="M8.5 2.5a.5.5 0 0 0-1 0v7.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V2.5z"/><path d="M8 15a7 7 0 0 1-7-7c0-3.866 3.134-7 7-7s7 3.134 7 7a7 7 0 0 1-7 7zm0-1a6 6 0 0 0 6-6c0-3.314-2.686-6-6-6S2 4.686 2 8a6 6 0 0 0 6 6z"/></svg>
+              </span>
+              Water &amp; Waste
+            </h2>
+            <p>
+              Intel conserves billions of gallons of water annually and 
+              collaborates with local communities to restore watersheds.
+              Intel also upcycles and recycles materials to reduce waste and 
+              advance a circular economy.
+            </p>
+            <a href="#" class="btn btn-outline-info mt-2" aria-label="Learn more about Water and Waste">Learn More</a>
+          </div>
+        </div>
       </div>
-
     </div>
   </section>
 
   <!-- Subscription Form -->
-  <section>
-    <h2>Subscribe to our Newsletter</h2>
-    <!-- Add form here -->
+  <section class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-body">
+            <h3 class="card-title mb-3 text-center">Subscribe to Intel’s Sustainability Newsletter</h3>
+            <form aria-label="Newsletter Subscription" novalidate>
+              <div class="mb-3">
+                <label for="subscriberEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="subscriberEmail" name="subscriberEmail" placeholder="name@example.com" required aria-required="true" aria-describedby="emailHelp" autocomplete="email">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div class="invalid-feedback" id="emailError" style="display:none;">Please enter a valid email address.</div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100" aria-label="Subscribe to newsletter">Subscribe</button>
+            </form>
+            <script>
+              // Accessibility: Show error feedback on invalid email
+              document.querySelector('form').addEventListener('submit', function(e) {
+                var emailInput = document.getElementById('subscriberEmail');
+                var errorDiv = document.getElementById('emailError');
+                if (!emailInput.checkValidity()) {
+                  e.preventDefault();
+                  emailInput.classList.add('is-invalid');
+                  errorDiv.style.display = 'block';
+                  emailInput.focus();
+                } else {
+                  emailInput.classList.remove('is-invalid');
+                  errorDiv.style.display = 'none';
+                }
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+  <p style="text-align:center; margin-top:2rem;">Scroll to view timeline | Hover over cards to learn more!</p>
+
+  <!-- Footer -->
+  <footer class="footer-custom mt-5">
+    <div class="container py-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div class="footer-copyright mb-2 mb-md-0">
+        &copy; 2025 Intel Corporation. All rights reserved.
+      </div>
+      <ul class="nav footer-links">
+        <li class="nav-item"><a class="nav-link" href="#" style="color:#0d6efd; font-weight:500;">Privacy Policy</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" style="color:#198754; font-weight:500;">Terms of Use</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" style="color:#0dcaf0; font-weight:500;">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+  <style>
+    .footer-custom {
+      background: linear-gradient(90deg, #e3f0ff 0%, #f8f9fa 100%);
+      border-top: 1.5px solid #b6d4fe;
+      color: #222;
+    }
+    .footer-copyright {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .footer-links .nav-link {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      transition: color 0.2s;
+      text-decoration: underline;
+    }
+    .footer-links .nav-link:hover {
+      color: #222 !important;
+      text-decoration: none;
+    }
+  </style>
 </body>
 </html>
